@@ -1,9 +1,10 @@
 :root {
-  /* Primary */
-  --scissors-gradient: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
-  --rock-gradient: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
-  --lizard-gradient: radial-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
-  --cyan: radial-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  /* Primary linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%)); */
+  --scissors-gradient: linear-gradient(#e66465, #9198e5);
+  --paper-gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --rock-gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --lizard-gradient: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  --cyan: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
   
   /* Neutral */
   --white: #FFF;
@@ -13,7 +14,7 @@
   --header-outline: hsl(217, 16%, 45%);
   
   /* Background */
-  --bg-body: radial-gradient(hsl(214, 47%, 23%), #141539);
+  --bg-body: linear-gradient(hsl(214, 47%, 23%), #141539);
   
 }
 
@@ -37,7 +38,7 @@ header{
   border: 2px solid hsl(217, 16%, 45%); 
   border-radius: 1rem;
   padding: 1rem;
-  width: 50%;
+  width: 40%;
   margin: 2rem;
   display: flex;
   justify-content: space-between;
@@ -50,13 +51,44 @@ header{
 
 .score {
   background-color: var(--white);
+  width: 100px;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
 }
 
 .score__title {
   color: var(--score-text);
+  font-weight: bold;
+
 
 }
 
 .score__number {
   color: var(--dark-text);
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.choice{
+  /* background-color: var(--white);
+  border-radius: 50%;
+  padding: 1rem;
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 5px; */
+  border-radius: 50px; /*1*/
+  border: 10px solid transparent; /*2*/
+  background: linear-gradient(red,blue) border-box; /*3*/
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) padding-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; 
+          mask-composite: exclude; 
+
+}
+
+.choice--scissors{
+  /* border-image-source: linear-gradient(to left, #743ad5, #d53a9d); */
 }
