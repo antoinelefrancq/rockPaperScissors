@@ -116,6 +116,26 @@ header{
 }
 
 /* The Modal (background) */
+
+aside {
+  align-self: flex-end;
+  margin-right: 3rem;
+  margin-bottom: 3rem;
+}
+#rulesButton {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+}
+
+#rulesButton:hover {
+  cursor: pointer;
+  color: var(--score-text);
+  border-color: var(--score-text);
+}
+
 .modal {
   display: none; 
   position: fixed; 
