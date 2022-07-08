@@ -30,14 +30,28 @@
   </header>
 
   <main>
-    <section class="arrow-down">
-      <section class="choice choice--paper"><img src="./images/icon-paper.svg" alt=""></section>
-      <section class="choice choice--scissors"><img src="./images/icon-scissors.svg" alt=""></section>
-      <section class="choice choice--rock"><img src="./images/icon-rock.svg" alt=""></section>
-    </section>
+    <section class="choice choice--paper"><img src="./images/icon-paper.svg" alt=""></section>
+    <section class="choice choice--scissors"><img src="./images/icon-scissors.svg" alt=""></section>
+    <section class="choice choice--rock"><img src="./images/icon-rock.svg" alt=""></section>
   </main>
   <aside>
-    <h1>Bonjour</h1>
+    <button id="rulesButton">Open Modal</button>
+    <!-- The Modal -->
+    <div id="rulesModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal__content">
+        <div>
+          <span class="close">&times;</span>
+          <h2 class="modal__title">RULES</h2>
+        </div>
+        <div>
+          <section class="choice-modal"><img src="./images/icon-paper.svg" alt=""></section>
+          <section class="choice-modal"><img src="./images/icon-scissors.svg" alt=""></section>
+          <section class="choice-modal"><img src="./images/icon-rock.svg" alt=""></section>
+        </div>
+      </div>
+    </div>
   </aside>
 
   <script src="./public/js/app.js"></script>

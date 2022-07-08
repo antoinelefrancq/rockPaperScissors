@@ -16,6 +16,7 @@
   --dark-text: hsl(229, 25%, 31%);
   --score-text: hsl(229, 64%, 46%);
   --header-outline: hsl(217, 16%, 45%);
+  --bg-choicemodal: lightgray;
   
   /* Background */
   --bg-body: linear-gradient(hsl(214, 47%, 23%), #141539);
@@ -114,11 +115,77 @@ header{
   background: var(--rock-gradient)
 }
 
-/* .arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 9rem solid transparent;
-  border-right: 9rem solid transparent;
-  
-  border-top: 13rem solid #f00;
-} */
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal__content {
+  background-color: #fefefe;
+  color: var(--header-outline);
+  margin: auto;
+  padding: 3rem;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.modal__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-text);
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.choice-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background-color: var(--bg-choicemodal);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.choice-modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 5rem; 
+  padding: 1.2rem;
+  background: var(--header-outline);
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
