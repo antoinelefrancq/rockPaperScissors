@@ -17,9 +17,12 @@
   --score-text: hsl(229, 64%, 46%);
   --header-outline: hsl(217, 16%, 45%);
   --bg-choicemodal: lightgray;
-  
+  /* antoine à ajouté */
+  --button-hover: #f0f;
+  --choice-measure: 20rem;
+  --triangle-measure: calc(var(--choice-measure) * 1.5);
   /* Background */
-  --bg-body: linear-gradient(hsl(214, 47%, 23%), #141539);
+  --bg-body: radial-gradient(hsl(214, 47%, 23%), #141539);
   
 }
 
@@ -78,29 +81,50 @@ header{
   font-weight: 700;
 }
 
+.choiceContainer{
+  position: relative;
+  background-image: url(../../images/bg-triangle.svg);
+  background-repeat: no-repeat;
+  width: var(--triangle-measure);
+  height: calc((var(--triangle-measure) / 313 ) * 278);
+  background-position: center;
+  background-size: 100%;
+  margin: calc(var(--choice-measure) / 2 + 1rem);
+}
+
 .choice{
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center; 
   background-color: var(--white);
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50px;
-  position: relative;
+  width: var(--choice-measure);
+  height: var(--choice-measure);
+  border-radius: 50%;
   overflow: hidden;
+  transition: all 0.3s ease-in;
 }
 
 .choice::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 5rem; 
-  padding: 1.2rem;  
+  border-radius: calc(var(--choice-measure) / 2); 
+  padding: calc((var(--choice-measure) / 10) * 1.2);  
   -webkit-mask: 
      linear-gradient(#fff 0 0) content-box, 
      linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
+  transition: all 0.3s ease-in;
+}
+
+.choice:hover{
+  width: calc(var(--choice-measure) + 1rem);
+  height: calc(var(--choice-measure) + 1rem);
+}
+.choice:hover::before{
+  border-radius: calc((var(--choice-measure) + 1rem) / 2);
 }
 
 .choice--paper::before{
@@ -113,6 +137,20 @@ header{
 
 .choice--rock::before{
   background: var(--rock-gradient)
+}
+.choice--paper{
+  top:  calc(0% - var(--choice-measure) / 2);
+  left: calc(0% - var(--choice-measure) / 2);
+}
+
+.choice--scissors{
+  top: calc(0% - var(--choice-measure) / 2);
+  right: calc(0% - var(--choice-measure) / 2);
+}
+
+.choice--rock{
+  bottom:calc(0% - var(--choice-measure) / 3); 
+  left:calc(50% - var(--choice-measure) / 2);
 }
 
 /* The Modal (background) */
@@ -128,12 +166,23 @@ aside {
   border: 2px solid var(--white);
   padding: 1rem 3rem;
   border-radius: 1rem;
+/* antoine change à partir d'ici -----*/
+  letter-spacing: 0.1rem;
+  transition: all 0.3s ease-in; 
+  
+}
+#rulesButton:hover{
+  letter-spacing: 0.25rem;
+  color: var(--button-hover);
+  border-color:  var(--button-hover);
+  box-shadow: 0 0 2.5rem  var(--button-hover);
 }
 
+/* -------antoine a changé jusque là */
 #rulesButton:hover {
   cursor: pointer;
-  color: var(--score-text);
-  border-color: var(--score-text);
+  /* color: var(--score-text);
+  border-color: var(--score-text); */
 }
 
 .modal {
