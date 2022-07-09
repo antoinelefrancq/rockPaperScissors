@@ -1,7 +1,11 @@
 const app = {
   choices: ["paper", "scissors", "rock"],
+  resultCompare: false,
+  compare: false,
+  score: 0,
 
   init: function () {
+    app.createScore();
     app.removeMainContent();
     app.createMainContent();
     app.handleModalRules();
@@ -15,6 +19,12 @@ const app = {
   getRandomChoice: function () {
     const choice = app.choices[app.getRandomInt(app.choices.length)];
     return `choice${choice.charAt(0).toUpperCase() + choice.slice(1)}`;
+  },
+
+  // <p id="score__number"></p>
+  createScore: function () {
+    const scoreNumber = document.getElementById("score__number");
+    scoreNumber.textContent = app.score;
   },
 
   handleModalRules: function () {
@@ -127,7 +137,7 @@ const app = {
     resultContainer.setAttribute("id", "resultContainer");
     const result = document.createElement("h2");
     result.setAttribute("id", "result");
-    result.textContent = "YOU LOSE"; // A modifier
+
     const buttonPLayAgain = document.createElement("button");
     buttonPLayAgain.textContent = "PLAY AGAIN";
     buttonPLayAgain.setAttribute("id", "buttonPlayAgain");
@@ -140,26 +150,57 @@ const app = {
 
     // choix Computer -------------------------------------------------
     divComputerPick.appendChild(pickComputerTitle);
-    divComputerPick.appendChild(articleChoiceComputer);
+    setTimeout(() => {
+      divComputerPick.appendChild(articleChoiceComputer);
+    }, 1000);
 
     picksContainer.appendChild(divUserPick);
-    picksContainer.appendChild(resultContainer);
+    setTimeout(() => {
+      picksContainer.appendChild(resultContainer);
+      app.handlePlayAgain();
+      app.handleWinner();
+      result.textContent = app.resultCompare; // A modifier
+    }, 1500);
     picksContainer.appendChild(divComputerPick);
     main.appendChild(picksContainer);
-
-    app.handlePlayAgain();
   },
 
   handlePlayerPick: function () {
     const allChoice = document.querySelectorAll(".choice");
-
     allChoice.forEach((choice) => {
       choice.addEventListener("click", (e) => {
+        const userChoice = e.target.id;
+        const computerChoice = app.getRandomChoice();
         app.removeMainContent();
-        console.log(app.getRandomChoice());
-        app.createPicksContent(e.target.id, app.getRandomChoice());
+        app.createPicksContent(userChoice, computerChoice);
+        app.compare = [{ choice: userChoice }, { choice: computerChoice }];
       });
     });
+  },
+  handleWinner: function () {
+    console.log(app.compare);
+    const formatedCompare = app.compare.map((compare) =>
+      compare.choice.slice(6).toLowerCase()
+    );
+    console.log(formatedCompare);
+    if (formatedCompare[0] === formatedCompare[1]) {
+      app.resultCompare = "It's a draw";
+    }
+    // else if (formatedCompare[0] === "rock" && formatedCompare[1] === "paper")
+    else if (
+      app.choices.indexOf(formatedCompare[0]) -
+        app.choices.indexOf(formatedCompare[1]) ===
+        -1 ||
+      app.choices.indexOf(formatedCompare[0]) -
+        app.choices.indexOf(formatedCompare[1]) ===
+        2
+    ) {
+      app.resultCompare = "You Lose !";
+    } else {
+      app.score++;
+      app.createScore();
+      app.resultCompare = "You Win !";
+    }
   },
 
   handlePlayAgain: function () {

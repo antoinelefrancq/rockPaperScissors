@@ -76,7 +76,7 @@ header{
 
 }
 
-.score__number {
+#score__number {
   color: var(--dark-text);
   font-size: 3rem;
   font-weight: 700;
@@ -266,7 +266,13 @@ main{
   position: relative;
   top: 0%;
   left: 0%;
+  order:1;
 }
+
+#computerPickContainer{
+  order: 3;
+}
+
 
 .choicePickUserPosition:hover {
   width: var(--choice-measure);
@@ -277,6 +283,7 @@ main{
   align-self: center;
   display:flex;
   flex-direction:column; 
+  order:2;
 }
 
 #result{
