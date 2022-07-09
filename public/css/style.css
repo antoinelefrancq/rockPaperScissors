@@ -160,29 +160,23 @@ aside {
   margin-right: 3rem;
   margin-bottom: 3rem;
 }
+
 #rulesButton {
   background-color: transparent;
   color: var(--white);
   border: 2px solid var(--white);
   padding: 1rem 3rem;
   border-radius: 1rem;
-/* antoine change à partir d'ici -----*/
   letter-spacing: 0.1rem;
-  transition: all 0.3s ease-in; 
-  
+  transition: all 0.3s ease-in;  
 }
+
 #rulesButton:hover{
   letter-spacing: 0.25rem;
   color: var(--button-hover);
   border-color:  var(--button-hover);
   box-shadow: 0 0 2.5rem  var(--button-hover);
-}
-
-/* -------antoine a changé jusque là */
-#rulesButton:hover {
   cursor: pointer;
-  /* color: var(--score-text);
-  border-color: var(--score-text); */
 }
 
 .modal {
