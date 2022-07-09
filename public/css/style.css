@@ -18,7 +18,7 @@
   --header-outline: hsl(217, 16%, 45%);
   --bg-choicemodal: lightgray;
   /* antoine à ajouté */
-  --button-hover: #f0f;
+  --button-hover: #1e9bff;
   --choice-measure: 20rem;
   --triangle-measure: calc(var(--choice-measure) * 1.5);
   /* Background */
@@ -191,6 +191,7 @@ aside {
   overflow: auto;
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); 
+  animation: 1s slideinup;
 }
 
 .modal__content {
@@ -225,4 +226,47 @@ aside {
 .rules {
   display: flex;
   justify-content: center;
+}
+
+@keyframes slideinup {
+  from{transform: scaleY(0);}
+  to {transform: scaleY(1);}
+}
+
+/* lors de la selection d'un item */
+main{
+  width:100%;
+  display:flex;
+  justify-content: center;
+
+}
+
+#picksContainer{
+  display:flex;
+  flex-direction:row;
+  width: 90%;
+  max-width: 76rem;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+#userPickContainer, #computerPickContainer{
+  display:flex;
+  flex-direction:column;
+  gap:3rem;
+  align-items: center;
+}
+
+.choicePickUserPosition {
+  position: relative;
+  top: 0%;
+  left: 0%;
+}
+
+.choicePickUserPosition:hover {
+  width: var(--choice-measure);
+  height: var(--choice-measure);
 }
