@@ -152,7 +152,7 @@ const app = {
     divComputerPick.appendChild(pickComputerTitle);
     setTimeout(() => {
       divComputerPick.appendChild(articleChoiceComputer);
-    }, 1000);
+    }, 500);
 
     picksContainer.appendChild(divUserPick);
     setTimeout(() => {

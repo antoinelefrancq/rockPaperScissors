@@ -20,7 +20,7 @@
   --bg-choicemodal: lightgray;
   /* antoine à ajouté */
   --button-hover: #1e9bff;
-  --choice-measure: 20rem;
+  --choice-measure: 18rem;
   --triangle-measure: calc(var(--choice-measure) * 1.5);
   /* Background */
   --bg-body: radial-gradient(hsl(214, 47%, 23%), #141539);
@@ -55,7 +55,7 @@ header{
 }
 
 .titleBlock {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: bold;
 }
 
@@ -230,11 +230,6 @@ aside {
   justify-content: center;
 }
 
-@keyframes slideinup {
-  from{transform: scaleY(0);}
-  to {transform: scaleY(1);}
-}
-
 /* lors de la selection d'un item */
 main{
   width:100%;
@@ -267,6 +262,7 @@ main{
   top: 0%;
   left: 0%;
   order:1;
+  animation: 1.5s appears;
 }
 
 #computerPickContainer{
@@ -284,6 +280,7 @@ main{
   display:flex;
   flex-direction:column; 
   order:2;
+  animation: 1.5s appears;
 }
 
 #result{
@@ -306,4 +303,17 @@ main{
   letter-spacing: 0.25rem;
   cursor: pointer;
   background-color: #ccc;
+  border: 0.2rem solid var(--red);
+}
+
+/* ----------animations-------------- */
+
+@keyframes slideinup {
+  from{transform: scaleX(0);}
+  to {transform: scaleX(1);}
+}
+
+@keyframes appears{
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
