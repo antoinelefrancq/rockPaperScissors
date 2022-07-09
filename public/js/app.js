@@ -2,6 +2,7 @@ const app = {
   choices: ["paper", "scissors", "rock"],
 
   init: function () {
+    app.removeMainContent();
     app.createMainContent();
     app.handleModalRules();
     app.handlePlayerPick();
@@ -122,6 +123,17 @@ const app = {
     const pickComputerTitle = document.createElement("h2");
     pickComputerTitle.textContent = "THE HOUSE PICKED";
 
+    const resultContainer = document.createElement("article");
+    resultContainer.setAttribute("id", "resultContainer");
+    const result = document.createElement("h2");
+    result.setAttribute("id", "result");
+    result.textContent = "YOU LOSE"; // A modifier
+    const buttonPLayAgain = document.createElement("button");
+    buttonPLayAgain.textContent = "PLAY AGAIN";
+    buttonPLayAgain.setAttribute("id", "buttonPlayAgain");
+
+    resultContainer.appendChild(result);
+    resultContainer.appendChild(buttonPLayAgain);
     // choix User -----------------------------------------------------
     divUserPick.appendChild(pickUserTitle);
     divUserPick.appendChild(articleChoiceUser);
@@ -131,8 +143,11 @@ const app = {
     divComputerPick.appendChild(articleChoiceComputer);
 
     picksContainer.appendChild(divUserPick);
+    picksContainer.appendChild(resultContainer);
     picksContainer.appendChild(divComputerPick);
     main.appendChild(picksContainer);
+
+    app.handlePlayAgain();
   },
 
   handlePlayerPick: function () {
@@ -144,6 +159,14 @@ const app = {
         console.log(app.getRandomChoice());
         app.createPicksContent(e.target.id, app.getRandomChoice());
       });
+    });
+  },
+
+  handlePlayAgain: function () {
+    const buttonPlayAgain = document.getElementById("buttonPlayAgain");
+
+    buttonPlayAgain.addEventListener("click", () => {
+      app.init();
     });
   },
 };

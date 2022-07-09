@@ -13,6 +13,7 @@
   /* Neutral */
   --white: #FFF;
   --black: #000;
+  --red: hsl(349, 71%, 52%);
   --dark-text: hsl(229, 25%, 31%);
   --score-text: hsl(229, 64%, 46%);
   --header-outline: hsl(217, 16%, 45%);
@@ -122,6 +123,7 @@ header{
 .choice:hover{
   width: calc(var(--choice-measure) + 1rem);
   height: calc(var(--choice-measure) + 1rem);
+  cursor:pointer;
 }
 .choice:hover::before{
   border-radius: calc((var(--choice-measure) + 1rem) / 2);
@@ -269,4 +271,32 @@ main{
 .choicePickUserPosition:hover {
   width: var(--choice-measure);
   height: var(--choice-measure);
+}
+
+#resultContainer{
+  align-self: center;
+  display:flex;
+  flex-direction:column; 
+}
+
+#result{
+  padding:1rem;
+  font-size: 4.5rem;
+}
+
+#buttonPlayAgain {
+  padding:1rem 3rem;
+  color: var(--red);
+  font-weight: 600;
+  border-radius: 1rem;
+  border: none;
+  margin: 3rem;
+  letter-spacing: 0.05rem;
+  transition: all 0.5s;
+}
+
+#buttonPlayAgain:hover {
+  letter-spacing: 0.25rem;
+  cursor: pointer;
+  background-color: #ccc;
 }
